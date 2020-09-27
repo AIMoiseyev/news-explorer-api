@@ -1,7 +1,7 @@
 const errMessages = {
   requiredFields: 'Заполнены не все обязательные поля',
   fieldValidation: 'Данные заполнены неверно',
-  cardId: 'Нет карточки с таким id',
+  articleId: 'Нет новости с таким id',
   userId: 'Нет пользователя с таким id',
   notEnoughRights: 'Недостаточно прав',
   sameEmail: 'Пользователь с таким email уже существует',
