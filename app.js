@@ -20,14 +20,14 @@ const app = express();
 const whitelist = ['https://aimoiseyev.github.io/news-explorer-frontend/', 'http://localhost:8080'];
 const corsOptions = {
   origin(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
+    if (whitelist.includes(origin) || !origin) {
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'))
+      callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
-}
+};
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
