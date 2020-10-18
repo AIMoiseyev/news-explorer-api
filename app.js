@@ -13,9 +13,21 @@ const usersRouter = require('./routes/users');
 const NotFoundError = require('./errors/not-found-err');
 const errorMessages = require('./errors/err-messages/err-messages');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
+const whitelist = ['https://aimoiseyev.github.io/news-explorer-frontend/', 'http://localhost:8080'];
+const corsOptions = {
+  origin(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true,
+}
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -35,6 +47,8 @@ app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors(corsOptions));
 app.use(requestLogger);
 
 app.use('/', articlesRouter);
