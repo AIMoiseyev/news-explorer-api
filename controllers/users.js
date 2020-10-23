@@ -66,3 +66,8 @@ module.exports.login = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.logout = (req, res) => {
+  res.cookie('jwt', '', { httpOnly: true, maxAge: 0, sameSite: "none", secure: true });
+  res.status(200).send({ message: 'Выход выполнен успешно' });
+}

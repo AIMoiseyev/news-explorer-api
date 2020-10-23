@@ -6,6 +6,7 @@ const {
   getUser,
   createUser,
   login,
+  logout,
 } = require('../controllers/users');
 
 const auth = require('../middlewares/auth');
@@ -39,5 +40,7 @@ usersRouter.post('/signin', celebrate({
         .min(8),
     }),
 }), login);
+
+usersRouter.post('/logout', logout);
 
 module.exports = usersRouter;
