@@ -17,7 +17,7 @@ const cors = require('cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-const whitelist = ['https://aimoiseyev.github.io/news-explorer-frontend/', 'http://localhost:8080'];
+const whitelist = ['https://aimoiseyev.github.io', 'http://localhost:8080'];
 const corsOptions = {
   origin(origin, callback) {
     if (whitelist.includes(origin) || !origin) {
