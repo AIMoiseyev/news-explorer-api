@@ -6,7 +6,7 @@
 В данном репозитории находится бэкенд дипломного проекта News-Explorer.
 
 ## Адрес сервера
-- 130.193.36.153
+- 178.154.226.5
 - [https://news-explorer-api.ml](https://news-explorer-api.ml)
 - [http://news-explorer-api.ml](http://news-explorer-api.ml)
 
